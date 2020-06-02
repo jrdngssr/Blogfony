@@ -5,16 +5,20 @@
 {% block body %}
     <h1>Post</h1>
 
-    <div class="card" style="width: 25rem;">
-        <img src="{{ post.imgsrc }}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h3 class="card-title"><a href="{{ path('post_show', {'id': post.id}) }}">{{ post.title }}</a></h3>
-            <p class="card-text">{{ post.content }}</p>
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-light"><a href="{{ path('post_edit', {'id': post.id}) }}">edit</a></button>
+   <div class="card" style="width: 18rem;">
+    <img src="{{ post.imgsrc }}" class="card-img-top" alt="...">
+        <div class="card-body bg-light">
+            <h3 class="card-title text-dark"><a href="{{ path('post_show', {'id': post.id}) }}">{{ post.title }}</a></h3>
+            <p class="card-text text-warning">{{ post.content }}</p>
+            <p class="card-text text-danger">{{ post.dateCreate ? post.dateCreate|date('Y-m-d') : '' }}</p>
+            <div class="bg-light clearfix">
+                <button type="button" class="btn btn-success"><a class="text-dark" href="{{ path('post_edit', {'id': post.id}) }}">Edit</a></button>
                 {{ include('post/_delete_form.html.twig') }}
             </div>
         </div>
-    </div><br>
-    <button type="button" class="btn btn-light"><a href="{{ path('post_index') }}">back to list</a></button>
+        </div><br>
+    </div>
+</div><br>
+<button type="button" class="btn btn-light"><a href="{{ path('post_index') }}">Back to list</a></button>
+<button type="button" class="btn btn-light"><a href="{{ path('home') }}">Back to Home</a></button>
 {% endblock %}

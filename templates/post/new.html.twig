@@ -7,5 +7,6 @@
 
     {{ include('post/_form.html.twig') }}
 
-    <a href="{{ path('post_index') }}">back to list</a>
+    <button type="button" class="btn btn-light"><a href="{{ path('post_index') }}">Back to list</a></button>
+    <button type="button" class="btn btn-light"><a href="{{ path('home') }}">Back to Home</a></button>
 {% endblock %}
